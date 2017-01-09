@@ -1,7 +1,6 @@
 package com.vicky.gatsby.configuration;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,19 +14,19 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.vicky.gatsby.*")
 public class Dispatcherconfig extends WebMvcConfigurerAdapter {
-	private static final Logger logger = LoggerFactory.getLogger(Dispatcherconfig.class);
-
+/*	private static final Logger logger = LoggerFactory.getLogger(Dispatcherconfig.class);
+*/
 	@Bean
 	public ViewResolver viewResolver() {
-		logger.debug("starting of the viewresolver");
+/*		logger.debug("starting of the viewresolver");*/
 
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/view/");
 		viewResolver.setSuffix(".jsp");
 
-		logger.debug("ending of the view resolver");
-
+/*		logger.debug("ending of the view resolver");
+*/
 		return viewResolver;
 	}
 }
