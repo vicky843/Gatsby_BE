@@ -29,7 +29,7 @@ PersonDAO per;
 	return new ResponseEntity<Persondetails>(person,HttpStatus.OK);
 	}
 
-@RequestMapping(value="/personupdate	",method=RequestMethod.PUT,headers="Accept=application/json")
+@RequestMapping(value="/personupdate",method=RequestMethod.PUT,headers="Accept=application/json")
 
 public ResponseEntity<Persondetails> updatingperson(@RequestBody Persondetails person )
 {
