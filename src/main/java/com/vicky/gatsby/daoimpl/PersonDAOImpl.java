@@ -59,12 +59,14 @@ System.out.println("connect to DB");
 		Persondetails per=(Persondetails) sessionFactory.getCurrentSession().get(Persondetails.class,id);
 		return per;
 	}
-
-	public List<Persondetails> getperlist(String username) {
-		String hql="from Persondetails where username='"+username+"'";
+	@Transactional
+	public List<Persondetails> getperlist() {
+		String hql="from Persondetails ";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 
+		System.out.println("listdaoimpl");
 		System.out.println("query"+hql);
+		@SuppressWarnings("unchecked")
 		List<Persondetails> perid=query.list();
 		System.out.println(hql+"this is perimp"+perid);
 			return perid;

@@ -19,7 +19,7 @@ public class Persondetails {
 	@Column
 public String password;
 	
-	/*@Column
+	@Column
 public String email;
 	
 	@Column
@@ -34,7 +34,6 @@ public String role;
 	@Column
 public String address;
 
-*/
 public String getUsername() {
 	return username;
 }
@@ -50,7 +49,7 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-/*
+
 public String getEmail() {
 	return email;
 }
@@ -90,5 +89,4 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
-*/
 }

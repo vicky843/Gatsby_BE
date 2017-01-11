@@ -37,7 +37,7 @@ public class Appconfig {
 		public Properties getHibernateProperties(){
 			System.out.println("hibernatepart");
 			Properties prop=new Properties();
-			   prop.setProperty("hibernate.hbm2ddl.auto", "update"); 
+/*			   prop.setProperty("hibernate.hbm2ddl.auto", "update"); */
 			prop.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");	
 		return prop;
 		}

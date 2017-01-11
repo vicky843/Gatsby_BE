@@ -1,5 +1,7 @@
 package com.vicky.gatsby.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +39,13 @@ public ResponseEntity<Persondetails> updatingperson(@RequestBody Persondetails p
 per.update(person);
 System.out.println("personcontroller");	
 return new ResponseEntity<Persondetails>(person,HttpStatus.OK);
+}
+@RequestMapping(value="/personlist",method=RequestMethod.GET,headers="Accept=application/json")
+public ResponseEntity<List<Persondetails>> getlist()
+{
+	System.out.println("listcontroller");
+	List <Persondetails> plist=per.getperlist();
+return new ResponseEntity<List<Persondetails>>(plist,HttpStatus.OK);	
 }
 
 }

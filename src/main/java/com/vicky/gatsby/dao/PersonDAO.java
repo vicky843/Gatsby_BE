@@ -13,7 +13,7 @@ public interface PersonDAO {
 	/*
 	public boolean delete(String id);*/
 	
-	public List<Persondetails> getperlist(String username);
+	public List<Persondetails> getperlist();
 	
 	public Persondetails getid(String id);
 }
