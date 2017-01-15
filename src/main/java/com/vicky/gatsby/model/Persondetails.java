@@ -34,6 +34,16 @@ public String role;
 	@Column
 public String address;
 
+	@Column
+	public String dateofbirth;
+public String getDateofbirth() {
+		return dateofbirth;
+	}
+
+	public void setDateofbirth(String dateofbirth) {
+		this.dateofbirth = dateofbirth;
+	}
+
 public String getUsername() {
 	return username;
 }
