@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.vicky.gatsby.dao.PersonDAO;
 import com.vicky.gatsby.model.Persondetails;
 
-@Repository("PersonDAO")
+@Repository
 public class PersonDAOImpl implements PersonDAO {
 
 	@Autowired
@@ -25,16 +25,10 @@ System.out.println("connect to DB");
 
 	@Transactional
 	public boolean save(Persondetails person) {
-		try {
-			sessionFactory.getCurrentSession().save(person);
+		sessionFactory.getCurrentSession().save(person);
 			System.out.println("daoimpl");
 			return true;
-		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
-
+		
 	}
 
 	@Transactional

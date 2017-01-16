@@ -2,6 +2,7 @@ package com.vicky.gatsby.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,9 +12,14 @@ import org.springframework.stereotype.Component;
 @Table(name="Persondetails")
 @Component
 
-public class Persondetails {
+public class Persondetails extends Errormsgs{
 
 	@Id
+	public String id;
+	
+	
+
+	@Column
 	public String username;
 	
 	@Column
@@ -36,12 +42,20 @@ public String address;
 
 	@Column
 	public String dateofbirth;
+	
 public String getDateofbirth() {
 		return dateofbirth;
 	}
 
 	public void setDateofbirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
+	}
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 public String getUsername() {

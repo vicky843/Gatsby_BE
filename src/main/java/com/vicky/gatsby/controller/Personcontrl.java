@@ -1,6 +1,7 @@
 package com.vicky.gatsby.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,12 @@ PersonDAO per;
  
 	public ResponseEntity<Persondetails> savingperson(@RequestBody Persondetails person )
 	{
-		
+	String randomid = UUID.randomUUID().toString();
+		System.out.println("savecontrollerbe");
+		person.setId(randomid);
+		person.setErrorcode("200");
+		person.setErrormsg("succesfully registered");
+		person.setStatus("pending");
 	per.save(person);
 	System.out.println("personcontroller");	
 	return new ResponseEntity<Persondetails>(person,HttpStatus.OK);
