@@ -16,4 +16,10 @@ public interface PersonDAO {
 	public List<Persondetails> getperlist();
 	
 	public Persondetails getid(String id);
+	/*
+	public Persondetails login(String username,String password);
+	//it can be removed if spring security is applied
+*/
+public Persondetails login(Persondetails person);
+
 }

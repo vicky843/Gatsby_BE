@@ -66,8 +66,35 @@ System.out.println("connect to DB");
 			return perid;
 	
 	}
+/*	//should be removed after applying security
+	@Transactional
+	public Persondetails login(String username, String password) {
+		
+	String hql="from Persondetails where username='"+username+"' password='"+password+"'";	
+	System.out.println(hql);
+	Query q=sessionFactory.getCurrentSession().createQuery(hql);
+	Query query=sessionFactory.getCurrentSession().createQuery(hql);
+	System.out.println("loginquery"+hql);
+	Persondetails ps=(Persondetails) query.uniqueResult();
+	
+		return ps;
+	}
+*/
 
+	public Persondetails login(Persondetails person) {
+		String username=person.getUsername();
+		String password=person.getPassword();
+		String hql="from Persondetails where username='"+username+"' password='"+password+"'";	
+		System.out.println(hql);
+		Query q=sessionFactory.getCurrentSession().createQuery(hql);
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		System.out.println("loginquery"+hql);
+		Persondetails ps=(Persondetails) query.uniqueResult();
+		
+			return ps;
+	}
 
+	
 
 /*	public boolean delete(String id) {
 		try {

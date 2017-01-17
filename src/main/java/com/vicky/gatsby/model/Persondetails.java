@@ -9,47 +9,46 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="Persondetails")
+@Table(name = "Persondetails")
 @Component
 
-public class Persondetails extends Errormsgs{
+public class Persondetails extends Errormsgs {
 
 	@Id
-	public String id;
-	
-	
+	public String username;
 
 	@Column
-	public String username;
-	
+	public String id;
+
 	@Column
-public String password;
-	
+	public String password;
+
 	@Column
-public String email;
-	
+	public String email;
+
 	@Column
-public String mobile;
-	
+	public String mobile;
+
 	@Column
-public String status;
-	
+	public String status;
+
 	@Column
-public String role;
-	
+	public String role;
+
 	@Column
-public String address;
+	public String address;
 
 	@Column
 	public String dateofbirth;
-	
-public String getDateofbirth() {
+
+	public String getDateofbirth() {
 		return dateofbirth;
 	}
 
 	public void setDateofbirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
+
 	public String getId() {
 		return id;
 	}
@@ -58,59 +57,59 @@ public String getDateofbirth() {
 		this.id = id;
 	}
 
-public String getUsername() {
-	return username;
-}
+	public String getUsername() {
+		return username;
+	}
 
-public void setUsername(String username) {
-	this.username = username;
-}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-public String getPassword() {
-	return password;
-}
+	public String getPassword() {
+		return password;
+	}
 
-public void setPassword(String password) {
-	this.password = password;
-}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-public String getEmail() {
-	return email;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public void setEmail(String email) {
-	this.email = email;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-public String getMobile() {
-	return mobile;
-}
+	public String getMobile() {
+		return mobile;
+	}
 
-public void setMobile(String mobile) {
-	this.mobile = mobile;
-}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
-public String getStatus() {
-	return status;
-}
+	public String getStatus() {
+		return status;
+	}
 
-public void setStatus(String status) {
-	this.status = status;
-}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-public String getRole() {
-	return role;
-}
+	public String getRole() {
+		return role;
+	}
 
-public void setRole(String role) {
-	this.role = role;
-}
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-public String getAddress() {
-	return address;
-}
+	public String getAddress() {
+		return address;
+	}
 
-public void setAddress(String address) {
-	this.address = address;
-}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }

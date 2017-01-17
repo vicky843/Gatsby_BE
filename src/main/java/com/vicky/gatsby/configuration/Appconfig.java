@@ -15,52 +15,50 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.vicky.gatsby.model.Persondetails;
+
 @Configuration
 @ComponentScan("com.vicky.gatsby.*")
 @EnableTransactionManagement
 public class Appconfig {
-	
 
-	@Bean(name="dataSource")
-		public DataSource getOracleDataSource(){
-		
-		DriverManagerDataSource datapart=new DriverManagerDataSource();
+	@Bean(name = "dataSource")
+	public DataSource getOracleDataSource() {
+
+		DriverManagerDataSource datapart = new DriverManagerDataSource();
 		datapart.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		datapart.setUrl("jdbc:oracle:thin:@//localhost:1521/XE");
-	
+
 		datapart.setUsername("gatsby");
 		datapart.setPassword("tiger");
 		System.out.println("datasource part");
 		return datapart;
-		}
-			
-		public Properties getHibernateProperties(){
-			System.out.println("hibernatepart");
-			Properties prop=new Properties();
-		   prop.setProperty("hibernate.hbm2ddl.auto", "update"); 
-			prop.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");	
+	}
+
+	public Properties getHibernateProperties() {
+		System.out.println("hibernatepart");
+		Properties prop = new Properties();
+		prop.setProperty("hibernate.hbm2ddl.auto", "update");
+		prop.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		return prop;
-		}
+	}
 
 	@Autowired
-	@Bean(name="sessionFactory")
-	public  SessionFactory getSessionFactory(DataSource dataSource)
-	{
-		LocalSessionFactoryBuilder sessionBuilder=new LocalSessionFactoryBuilder(dataSource);	
+	@Bean(name = "sessionFactory")
+	public SessionFactory getSessionFactory(DataSource dataSource) {
+		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Persondetails.class);
+
 		System.out.println("sessionfactory part");
-			return sessionBuilder.buildSessionFactory();
+		return sessionBuilder.buildSessionFactory();
 	}
+
 	@Autowired
-	@Bean(name="transcationManager")
-	public HibernateTransactionManager getTranscationManager(SessionFactory sessionfactory){
-		HibernateTransactionManager trans= new HibernateTransactionManager(sessionfactory);
+	@Bean(name = "transcationManager")
+	public HibernateTransactionManager getTranscationManager(SessionFactory sessionfactory) {
+		HibernateTransactionManager trans = new HibernateTransactionManager(sessionfactory);
 		System.out.println("Transcationmanager part");
 		return trans;
-		
+
 	}
-	}
-
-
-
+}
