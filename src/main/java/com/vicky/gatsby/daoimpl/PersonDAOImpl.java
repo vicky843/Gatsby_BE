@@ -13,6 +13,7 @@ import com.vicky.gatsby.dao.PersonDAO;
 import com.vicky.gatsby.model.Persondetails;
 
 @Repository
+@Transactional
 public class PersonDAOImpl implements PersonDAO {
 
 	@Autowired
@@ -23,7 +24,7 @@ System.out.println("connect to DB");
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Transactional
+	
 	public boolean save(Persondetails person) {
 		sessionFactory.getCurrentSession().save(person);
 			System.out.println("daoimpl");
@@ -31,7 +32,7 @@ System.out.println("connect to DB");
 		
 	}
 
-	@Transactional
+	
 	public boolean update(Persondetails person) {
 		// TODO Auto-generated method stub
 
@@ -47,13 +48,13 @@ System.out.println("connect to DB");
 
 	}
 
-	@Transactional
+	
 	public Persondetails getid(String id) {
 		
 		Persondetails per=(Persondetails) sessionFactory.getCurrentSession().get(Persondetails.class,id);
 		return per;
 	}
-	@Transactional
+	
 	public List<Persondetails> getperlist() {
 		String hql="from Persondetails ";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
@@ -67,7 +68,7 @@ System.out.println("connect to DB");
 	
 	}
 /*	//should be removed after applying security
-	@Transactional
+	
 	public Persondetails login(String username, String password) {
 		
 	String hql="from Persondetails where username='"+username+"' password='"+password+"'";	
@@ -84,7 +85,7 @@ System.out.println("connect to DB");
 	public Persondetails login(Persondetails person) {
 		String username=person.getUsername();
 		String password=person.getPassword();
-		String hql="from Persondetails where username='"+username+"' password='"+password+"'";	
+		String hql="from Persondetails where username='"+username+"' and password='"+password+"'";	
 		System.out.println(hql);
 		Query q=sessionFactory.getCurrentSession().createQuery(hql);
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
