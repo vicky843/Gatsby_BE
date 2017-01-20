@@ -8,7 +8,7 @@ public interface BlogDAO {
 
 	public boolean save(Blogdetails blog);
 	
-	public boolean delete(Blogdetails blog);
+	public Blogdetails delete(String blogname);
 	
 	public boolean update (Blogdetails blog);
 	

@@ -12,7 +12,7 @@ import com.vicky.gatsby.dao.BlogDAO;
 import com.vicky.gatsby.model.Blogdetails;
 
 @Repository
-@Transactional
+
 public class BlogDAOImpl implements BlogDAO {
 
 	@Autowired
@@ -22,7 +22,7 @@ public class BlogDAOImpl implements BlogDAO {
 		System.out.println("connect to DB");
 				this.sessionFactory = sessionFactory;
 			}
-	
+	@Transactional	
 	public boolean save(Blogdetails blog) {
 	try {
 		sessionFactory.getCurrentSession().save(blog);
@@ -37,24 +37,22 @@ public class BlogDAOImpl implements BlogDAO {
 	
 		
 	}
-
-	public boolean delete(Blogdetails blog) {
-		try {
-			sessionFactory.getCurrentSession().delete(blog);
+	@Transactional
+	public Blogdetails delete(String blogname) {
+		
+			/*Blogdetails blog=new Blogdetails();
+			blog.setBlogname(blogname);*/
+		Blogdetails bm=(Blogdetails) sessionFactory.getCurrentSession().get(Blogdetails.class, blogname);
+		
+			sessionFactory.getCurrentSession().delete(bm);
 			System.out.println("deleteblog");
-			return true;
-		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
-			return false;
+			return bm;
 		}
-	}
-
+	@Transactional
 	public boolean update(Blogdetails blog) {
 		try {
 			sessionFactory.getCurrentSession().update(blog);
-			System.out.println("updateblog");
+			System.out.println("updateblogdaoimpl");
 			return true;
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
@@ -63,12 +61,12 @@ public class BlogDAOImpl implements BlogDAO {
 		}
 		
 	}
-
+	@Transactional
 	public List<Blogdetails> bloglist() {
 List<Blogdetails> listblog=(List<Blogdetails>)sessionFactory.getCurrentSession().createCriteria(Blogdetails.class).list();
 		return listblog;
 	}
-
+	@Transactional
 	public Blogdetails getbyid(String blogid) {
 	/*String hql="from Blogdetails where blogid='"+blogid+"'"*/;
 	Blogdetails blo=(Blogdetails) sessionFactory.getCurrentSession().get(Blogdetails.class, blogid);

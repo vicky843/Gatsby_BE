@@ -14,11 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Blogdetails extends Errormsgs {
 
-	@Id
+	@Column
+	
 	public String blogid;
 
-	@Column
-	public String title;
+	@Id
+	public String blogname;
 
 	@Column
 	public String description;
@@ -48,12 +49,13 @@ public class Blogdetails extends Errormsgs {
 		this.blogid = blogid;
 	}
 
-	public String getTitle() {
-		return title;
+
+	public String getBlogname() {
+		return blogname;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBlogname(String blogname) {
+		this.blogname = blogname;
 	}
 
 	public String getDescription() {
