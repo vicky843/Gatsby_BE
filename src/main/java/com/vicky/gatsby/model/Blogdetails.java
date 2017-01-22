@@ -32,6 +32,16 @@ public class Blogdetails extends Errormsgs {
 
 	@Column
 	public String status;
+	@Column
+	public String role;
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	public String getStatus() {
 		return status;
