@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.vicky.gatsby.model.Blogdetails;
+import com.vicky.gatsby.model.Friend;
 import com.vicky.gatsby.model.Persondetails;
 
 @Configuration
@@ -50,6 +51,7 @@ public class Appconfig {
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Persondetails.class);
 		sessionBuilder.addAnnotatedClass(Blogdetails.class);
+		sessionBuilder.addAnnotatedClass(Friend.class);
 		System.out.println("sessionfactory part");
 		return sessionBuilder.buildSessionFactory();
 	}

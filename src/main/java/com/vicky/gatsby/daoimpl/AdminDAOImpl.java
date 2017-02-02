@@ -13,7 +13,7 @@ public class AdminDAOImpl implements AdminDAO {
 
 public SessionFactory sessionFactory;
 
-@Autowired
+@Autowired(required=true)
 PersonDAO pers;
 public AdminDAOImpl(SessionFactory sessionFactory)
 
